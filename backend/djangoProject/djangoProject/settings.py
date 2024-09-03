@@ -28,7 +28,14 @@ SECRET_KEY = 'django-insecure-1n@-e9ccs(k8fk-ot!4=vwr*v^ppojn$h!5__ov%hils(3%kk5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',# Добавьте это, если у вас есть домен
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -111,6 +118,7 @@ CKEDITOR_5_CONFIGS = {
         }
     }
 }
+CORS_ALLOW_ALL_ORIGINS = True
 
 CKEDITOR_5_ALLOW_ALL_FILE_TYPES = True
 CKEDITOR_5_UPLOAD_FILE_TYPES = ['jpeg', 'pdf', 'png']
@@ -137,7 +145,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_ckeditor_5',
-
+    'corsheaders',
     'cases',
     'reviews',
     'send_data_form',
@@ -146,6 +154,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
