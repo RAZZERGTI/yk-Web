@@ -124,7 +124,8 @@ CKEDITOR_5_ALLOW_ALL_FILE_TYPES = True
 CKEDITOR_5_UPLOAD_FILE_TYPES = ['jpeg', 'pdf', 'png']
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '../..')
-MEDIA_URL = 'media/'
+
+MEDIA_URL = '/media/'
 load_dotenv()
 
 EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
